@@ -1,16 +1,19 @@
 
 package bakeofffantasyleague;
 
+
+
 /**
  *
  * @author Mateus Manhani
  */
 public class Player {
-    public String name;
-    public String contestant1;
-    public String contestant2;
-    public String contestant3;
-    public String teamName;
+    private String name;
+    private String contestant1;
+    private String contestant2;
+    private String contestant3;
+    private String teamName;
+    
     
 
     public Player(String name, String teamName, String contestant1, String contestant2, String contestant3){
