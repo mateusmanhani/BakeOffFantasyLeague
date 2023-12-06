@@ -2,6 +2,8 @@
 package bakeofffantasyleague;
 
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 /**
@@ -11,16 +13,14 @@ import java.util.Scanner;
 public class BakeOffFantasyLeague {
 
     public static void main(String[] args) {
-        
+        List<Player> playerRank = new ArrayList<>();
+        List<Contestant> contestantRank = new ArrayList<>();
         
     }
     
-    public Player createNewPlayer(){
+    public static Player createNewPlayer(){
         String name = "";
         String teamName = "";
-        String contestant1 = "";
-        String contestant2 = "";
-        String contestant3 = "";
         
         Scanner sc = new Scanner(System.in);
         
