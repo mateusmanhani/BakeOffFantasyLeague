@@ -44,7 +44,7 @@ public class BakeOffFantasyLeague {
         // Add new player to list
         players.add(newPlayer);
         //sort list by points
-        rankPlayers(players);
+        sortPlayers(players);
         
     }
     
@@ -56,14 +56,14 @@ public class BakeOffFantasyLeague {
      }
     }
     
-    public static ArrayList<Contestant> rankContestants(ArrayList<Contestant> contestants){
+    public static ArrayList<Contestant> sortContestants(ArrayList<Contestant> contestants){
         // Use ArrayList.sort with a custom comparator
         contestants.sort(Comparator.comparingInt(Contestant::getContestantPoints).reversed());
         
         return contestants;
     }
     
-    private static ArrayList<Player> rankPlayers(ArrayList<Player> players) {
+    private static ArrayList<Player> sortPlayers(ArrayList<Player> players) {
         // Use ArrayList.sort with a custom comparator
         players.sort(Comparator.comparingInt(Player::getPlayerPoints).reversed());
         
