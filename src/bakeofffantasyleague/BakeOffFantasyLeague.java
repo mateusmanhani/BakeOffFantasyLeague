@@ -48,6 +48,14 @@ public class BakeOffFantasyLeague {
         
     }
     
+    private static void displayPlayers(ArrayList<Player> players) {
+     // Display the players with their total points
+     System.out.printf("%-10s %-15s\n", "Name", "Total Points");
+     for (Player player : players) {
+         System.out.printf("%-10s %-15d\n", player.getPlayerName(), player.getPlayerPoints());
+     }
+    }
+    
     public static ArrayList<Contestant> rankContestants(ArrayList<Contestant> contestants){
         // Use ArrayList.sort with a custom comparator
         contestants.sort(Comparator.comparingInt(Contestant::getContestantPoints).reversed());
