@@ -1,28 +1,34 @@
 
 package bakeofffantasyleague;
 
-
-
+import java.util.ArrayList;
 /**
  *
  * @author Mateus Manhani
  */
 public class Player {
     private String name;
-    private String contestant1;
-    private String contestant2;
-    private String contestant3;
     private String teamName;
+    private int totalPoints;
+    private ArrayList<Contestant> predctionHistory;
     
     
-
-    public Player(String name, String teamName, String contestant1, String contestant2, String contestant3){
+    public class Contestant{
+        String contestantName;
+        int constestantRank;
+        
+        public Contestant (String contestantName){
+            this.contestantName = contestantName;
+        }
+    }
+    public Player(String name, String teamName){
         this.name = name;
-        this.contestant1 = contestant1;
-        this.contestant2 = contestant2;
-        this.contestant3 = contestant3;
         this.teamName = teamName;
+        this.totalPoints = 0;
+        this.predctionHistory = new ArrayList<>();
+        
     }
     
     
 }
+
