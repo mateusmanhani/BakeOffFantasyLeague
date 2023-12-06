@@ -27,6 +27,10 @@ public class Player {
         return totalPoints;
     }
     
+    public void updatePoints(int points){
+        this.totalPoints += points;
+    }
+    
     
 }
 

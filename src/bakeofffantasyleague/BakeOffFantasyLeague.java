@@ -15,7 +15,6 @@ public class BakeOffFantasyLeague {
     public static void main(String[] args) {
         ArrayList<Player> players = new ArrayList<>();
         ArrayList<Contestant> contestants = new ArrayList<>();
-        
     }
     
     public static void createNewPlayer(ArrayList<Player> players){
