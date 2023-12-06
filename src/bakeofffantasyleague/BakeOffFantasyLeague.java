@@ -32,17 +32,6 @@ public class BakeOffFantasyLeague {
 
                 System.out.println("Enter your Team Name:");
                 teamName = sc.nextLine();
-
-                System.out.println("Now you will be asked for three contestants that will compose your team.");
-                System.out.println("Please enter the first contestant:");
-                contestant1 = sc.nextLine();
-
-                System.out.println("Please enter the second contestant:");
-                contestant2 = sc.nextLine();
-
-                System.out.println("Please enter the third contestant:");
-                contestant3 = sc.nextLine();
-
                 // If all inputs are successful, break out of the loop
                 break;
             } catch (Exception e) {
@@ -50,7 +39,7 @@ public class BakeOffFantasyLeague {
                 sc.nextLine(); // Consume the invalid input to prevent an infinite loop
             }
         }
-        Player newPlayer = new Player(name, teamName, contestant1, contestant2, contestant3);
+        Player newPlayer = new Player(name, teamName);
         
         return newPlayer;
     }
