@@ -3,7 +3,7 @@ package bakeofffantasyleague;
 
 
 import java.util.ArrayList;
-import java.util.List;
+import java.util.Comparator;
 import java.util.Scanner;
 
 /**
@@ -13,8 +13,8 @@ import java.util.Scanner;
 public class BakeOffFantasyLeague {
 
     public static void main(String[] args) {
-        List<Player> playerRank = new ArrayList<>();
-        List<Contestant> contestantRank = new ArrayList<>();
+        ArrayList<Player> players = new ArrayList<>();
+        ArrayList<Contestant> contestants = new ArrayList<>();
         
     }
     
@@ -42,6 +42,20 @@ public class BakeOffFantasyLeague {
         Player newPlayer = new Player(name, teamName);
         
         return newPlayer;
+    }
+    
+    public static ArrayList<Contestant> rankContestants(ArrayList<Contestant> contestants){
+        // Use ArrayList.sort with a custom comparator
+        contestants.sort(Comparator.comparingInt(Contestant::getContestantPoints).reversed());
+        
+        return contestants;
+    }
+    
+    private static ArrayList<Player> rankPlayers(ArrayList<Player> players) {
+        // Use ArrayList.sort with a custom comparator
+        players.sort(Comparator.comparingInt(Player::getPlayerPoints).reversed());
+        
+        return players;
     }
     
     public void getWeeklyPrediction(){

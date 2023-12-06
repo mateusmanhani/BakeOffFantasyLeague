@@ -19,7 +19,7 @@ public class Contestant {
         return contestantName;
     }
     
-    public int getcontestantPoints(){
+    public int getContestantPoints(){
         return totalPoints;
     }
     
