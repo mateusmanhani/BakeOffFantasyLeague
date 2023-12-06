@@ -18,7 +18,7 @@ public class BakeOffFantasyLeague {
         
     }
     
-    public static Player createNewPlayer(){
+    public static void createNewPlayer(ArrayList<Player> players){
         String name = "";
         String teamName = "";
         
@@ -39,9 +39,13 @@ public class BakeOffFantasyLeague {
                 sc.nextLine(); // Consume the invalid input to prevent an infinite loop
             }
         }
+        // Instanciate new player
         Player newPlayer = new Player(name, teamName);
+        // Add new player to list
+        players.add(newPlayer);
+        //sort list by points
+        rankPlayers(players);
         
-        return newPlayer;
     }
     
     public static ArrayList<Contestant> rankContestants(ArrayList<Contestant> contestants){
