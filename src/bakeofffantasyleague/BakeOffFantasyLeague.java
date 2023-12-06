@@ -58,7 +58,7 @@ public class BakeOffFantasyLeague {
         return players;
     }
     
-    public void getWeeklyPrediction(){
+    public static void getWeeklyPrediction(){
         
     }
 }
