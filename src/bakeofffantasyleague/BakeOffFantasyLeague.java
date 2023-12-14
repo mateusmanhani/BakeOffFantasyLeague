@@ -14,7 +14,7 @@ public class BakeOffFantasyLeague {
 
     public static void main(String[] args) {
         ArrayList<Player> players = new ArrayList<>();
-        ArrayList<Contestant> contestants = new ArrayList<>();
+        ArrayList<Baker> bakers = new ArrayList<>();
     }
     
     public static void createNewPlayer(ArrayList<Player> players){
@@ -55,11 +55,18 @@ public class BakeOffFantasyLeague {
      }
     }
     
-    public static ArrayList<Contestant> sortContestants(ArrayList<Contestant> contestants){
+    private static void displayBakers(ArrayList<Baker> bakers) {
+     // Display the players with their total points
+     System.out.printf("%-10s %-15s\n", "Name", "Total Points");
+     for (Baker baker : bakers) {
+         System.out.printf("%-10s %-15d\n", baker.getBakerName(), baker.getBakerPoints());
+     }
+    }    
+    public static ArrayList<Baker> sortContestants(ArrayList<Baker> bakers){
         // Use ArrayList.sort with a custom comparator
-        contestants.sort(Comparator.comparingInt(Contestant::getContestantPoints).reversed());
+        bakers.sort(Comparator.comparingInt(Baker::getBakerPoints).reversed());
         
-        return contestants;
+        return bakers;
     }
     
     private static ArrayList<Player> sortPlayers(ArrayList<Player> players) {
@@ -67,9 +74,5 @@ public class BakeOffFantasyLeague {
         players.sort(Comparator.comparingInt(Player::getPlayerPoints).reversed());
         
         return players;
-    }
-    
-    public static void getWeeklyPrediction(){
-        
     }
 }
