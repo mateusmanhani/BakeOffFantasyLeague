@@ -13,13 +13,14 @@ public class Player {
     private String teamName;
     private int totalPoints;
     private ArrayList<Baker> predictionHistory;
+    private ArrayList<Integer> scoringHistory;
 
     public Player(String name, String teamName){
         this.playerName = name;
         this.teamName = teamName;
         this.totalPoints = 0;
         this.predictionHistory = new ArrayList<>();
-        // Three predictions per week: Best Baker, Technical Round Winner, Eliminated Baker
+        this.scoringHistory = new ArrayList<>();
     }
     
     public String getPlayerName(){
@@ -126,6 +127,21 @@ public class Player {
             System.out.println("Prediction added successfully.");
         }else{
             System.out.println("Baker not found.");
+        }
+    }
+    
+    public void displayPredictionHistory(){
+        //Display Prediction history of a player as a table. Still missing the last column which will be the players points per week and the total points
+        System.out.printf("%-20s %-20s %-20s %-20s\n", "Week", "Best Baker" , "Round Winner" , "Eliminated Baker");
+        System.out.println("------------------------------------------------------------");
+        
+        for (int i = 0; i < predictionHistory.size(); i+=3){
+            int weekNumber = (i/3)+1;
+            Baker bestBaker = predictionHistory.get(i);
+            Baker roundWinner = predictionHistory.get(i+1);
+            Baker eliminatedBaker = predictionHistory.get(i+2);
+            
+            System.out.printf("%-20s %-20s %-20s %-20s\n", weekNumber, bestBaker.getBakerName(), roundWinner.getBakerName(), eliminatedBaker.getBakerName()); 
         }
     }
         
