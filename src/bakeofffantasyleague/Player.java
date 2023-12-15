@@ -2,6 +2,7 @@
 package bakeofffantasyleague;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 /**
  *
  * @author Mateus Manhani
@@ -47,8 +48,46 @@ public class Player {
         return null;
     }
     
-    public static void getWeeklyPredictions(){
-    
+    public static void getWeeklyPredictions(Player player, ArrayList<Baker> bakers){
+        String bestBakerStr;
+        String roundWinnerStr;
+        String eliminatedBakerStr;
+        
+        Scanner sc = new Scanner(System.in);
+        System.out.println(" Please select best baker and type the name;  ");
+        bestBakerStr = sc.nextLine();
+        
+        System.out.println("Now pick the winner of the technical round: ");
+        roundWinnerStr = sc.nextLine();
+        
+        System.out.println("Lastly pick who you believe will be eliminated: ");
+        eliminatedBakerStr = sc.nextLine();
+        
+        Baker bestBaker = findBakerByName(bestBakerStr, bakers);
+        
+        if(bestBaker != null){
+            player.addPrediction(bestBaker);
+            System.out.println("Prediction added Successfully.");
+        }else{
+            System.out.println("Baker not found.");
+        }
+        
+        Baker roundWinner = findBakerByName(roundWinnerStr, bakers);
+        
+        if (roundWinner != null){
+            player.addPrediction(roundWinner);
+            System.out.println("Prediction adder successfully.");
+        }else{
+            System.out.println("Baker not found.");
+        }
+        
+        Baker eliminatedBaker = findBakerByName(eliminatedBakerStr, bakers);
+        if (eliminatedBaker != null){
+            player.addPrediction(eliminatedBaker);
+            System.out.println("Prediction added successfully.");
+        }else{
+            System.out.println("Baker not found.");
+        }
     }
         
 }
