@@ -13,14 +13,14 @@ public class Player {
     private String teamName;
     private int totalPoints;
     private ArrayList<Baker> predictionHistory;
-    private ArrayList<Integer> scoringHistory;
+    private ArrayList<Integer> scoreHistory;
 
     public Player(String name, String teamName){
         this.playerName = name;
         this.teamName = teamName;
         this.totalPoints = 0;
         this.predictionHistory = new ArrayList<>();
-        this.scoringHistory = new ArrayList<>();
+        this.scoreHistory = new ArrayList<>();
     }
     
     public String getPlayerName(){
