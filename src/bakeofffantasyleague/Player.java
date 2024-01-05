@@ -1,6 +1,8 @@
 
 package bakeofffantasyleague;
 
+import bakeofffantasyleague.Repositories.BakerRepository;
+import bakeofffantasyleague.Repositories.PlayerRepository;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.Scanner;
@@ -23,7 +25,7 @@ public class Player {
         this.scoreHistory = new ArrayList<>();
     }
     
-    public String getPlayerName(){
+    public String getName(){
         return playerName;
     }
     
@@ -35,7 +37,7 @@ public class Player {
         this.totalPoints += points;
     }
     
-    public static void createNewPlayer(ArrayList<Player> players){
+    public static void createNewPlayer(){
     String name = "";
     String teamName = "";
 
@@ -59,19 +61,8 @@ public class Player {
     // Instanciate new player
     Player newPlayer = new Player(name, teamName);
     // Add new player to list
-    players.add(newPlayer);
-    //sort list by points
-    sortPlayers(players);
-
-    }
-    
-    public static ArrayList<Player> sortPlayers(ArrayList<Player> players) {
-    // Use ArrayList.sort with a custom comparator
-    players.sort(Comparator.comparingInt(Player::getPlayerPoints).reversed());
-
-    return players;
-}
-        
+    PlayerRepository.addPlayer(newPlayer);
+    }        
     
     public void addPrediction(Baker contestant){
         predictionHistory.add(contestant);
@@ -81,17 +72,12 @@ public class Player {
         return predictionHistory;
     }
     
-    private static Baker findBakerByName(String name, ArrayList<Baker> bakers){
-        for (Baker baker : bakers){
-            if(baker.getBakerName().equalsIgnoreCase(name)) return baker;
-        }
-        return null;
-    }
-    
-    public static void getWeeklyPredictions(Player player, ArrayList<Baker> bakers){
+    public static void getWeeklyPredictions(Player player){
         String bestBakerStr;
         String roundWinnerStr;
         String eliminatedBakerStr;
+        
+        BakerRepository.displayBakers();
         
         Scanner sc = new Scanner(System.in);
         System.out.println(" Please select best baker and type the name;  ");
@@ -103,7 +89,7 @@ public class Player {
         System.out.println("Lastly pick who you believe will be eliminated: ");
         eliminatedBakerStr = sc.nextLine();
         
-        Baker bestBaker = findBakerByName(bestBakerStr, bakers);
+        Baker bestBaker = BakerRepository.getBakersMap().get(bestBakerStr);
         
         if(bestBaker != null){
             player.addPrediction(bestBaker);
@@ -112,7 +98,7 @@ public class Player {
             System.out.println("Baker not found.");
         }
         
-        Baker roundWinner = findBakerByName(roundWinnerStr, bakers);
+        Baker roundWinner = BakerRepository.getBakersMap().get(roundWinnerStr);
         
         if (roundWinner != null){
             player.addPrediction(roundWinner);
@@ -121,7 +107,7 @@ public class Player {
             System.out.println("Baker not found.");
         }
         
-        Baker eliminatedBaker = findBakerByName(eliminatedBakerStr, bakers);
+        Baker eliminatedBaker = BakerRepository.getBakersMap().get(eliminatedBakerStr);
         if (eliminatedBaker != null){
             player.addPrediction(eliminatedBaker);
             System.out.println("Prediction added successfully.");

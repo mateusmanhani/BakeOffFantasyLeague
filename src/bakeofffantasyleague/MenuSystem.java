@@ -12,6 +12,11 @@ public class MenuSystem {
         Scanner sc = new Scanner(System.in);
         boolean exit = false;
         
+        System.out.println("Please log in to continue.");
+        System.out.println("Enter your Fanatsy League ID: ");
+        
+        String player = sc.nextLine();
+        
         while (!exit){
             System.out.println("Main Menu: ");
             System.out.println("1. Make Predictions");
@@ -26,7 +31,7 @@ public class MenuSystem {
             
             switch (choice){
                 case 1:
-                    //getWeeklyPredictions
+                    Player.getWeeklyPredictions();
                     break;
                 case 2:
                     // display bakers 
