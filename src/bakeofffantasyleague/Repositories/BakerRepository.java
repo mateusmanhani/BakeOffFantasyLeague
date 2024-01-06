@@ -1,4 +1,8 @@
 package bakeofffantasyleague.Repositories;
+/**
+ *
+ * @author Mateus Manhani
+ */
 
 import bakeofffantasyleague.Baker;
 
@@ -12,7 +16,7 @@ import java.util.Map;
 public class BakerRepository {
     private static Map<String, Baker> bakerMap = new HashMap<>();
 
-    // Bakers Operations
+    // Baker Operations
     public static void readBakersFromCSV(String filePath) {
         try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
             String line;
