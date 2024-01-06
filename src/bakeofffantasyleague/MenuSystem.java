@@ -1,5 +1,7 @@
 package bakeofffantasyleague;
 
+import bakeofffantasyleague.Repositories.BakerRepository;
+import bakeofffantasyleague.Repositories.PlayerRepository;
 import java.util.Scanner;
 
 /**
@@ -15,7 +17,8 @@ public class MenuSystem {
         System.out.println("Please log in to continue.");
         System.out.println("Enter your Fanatsy League ID: ");
         
-        String player = sc.nextLine();
+        String playerId = sc.nextLine();
+        Player currentPlayer = findPlayerById(playerId);
         
         while (!exit){
             System.out.println("Main Menu: ");
@@ -31,16 +34,20 @@ public class MenuSystem {
             
             switch (choice){
                 case 1:
-                    Player.getWeeklyPredictions();
+                    // Take players predctions
+                    Player.getWeeklyPredictions(currentPlayer);
                     break;
                 case 2:
                     // display bakers 
+                    BakerRepository.displayBakers();
                     break;
                 case 3:
                     //display player's history
+                    currentPlayer.displayPredictionHistory();
                     break;
                 case 4:
                     // Display Players
+                    PlayerRepository.displayPlayers();
                     break;
                 case 5:
                     exit = true;
@@ -50,6 +57,10 @@ public class MenuSystem {
             }
         }
         
+    }
+    
+    private static Player findPlayerById(String playerId){
+        return PlayerRepository.getPlayers().get(playerId);
     }
     
 }
