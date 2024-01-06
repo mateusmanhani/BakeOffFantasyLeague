@@ -35,7 +35,7 @@ public class MenuSystem {
             switch (choice){
                 case 1:
                     // Take players predctions
-                    Player.getWeeklyPredictions(currentPlayer);
+                    PlayerRepository.getWeeklyPredictions(currentPlayer);
                     break;
                 case 2:
                     // display bakers 
@@ -43,7 +43,7 @@ public class MenuSystem {
                     break;
                 case 3:
                     //display player's history
-                    currentPlayer.displayPredictionHistory();
+                    PlayerRepository.displayPredictionHistory(currentPlayer);
                     break;
                 case 4:
                     // Display Players

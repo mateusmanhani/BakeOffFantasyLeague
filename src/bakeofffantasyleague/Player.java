@@ -70,66 +70,6 @@ public class Player {
     
     public ArrayList<Baker> getPredictionHistory(){
         return predictionHistory;
-    }
-    
-    public static void getWeeklyPredictions(Player player){
-        String bestBakerStr;
-        String roundWinnerStr;
-        String eliminatedBakerStr;
-        
-        BakerRepository.displayBakers();
-        
-        Scanner sc = new Scanner(System.in);
-        System.out.println(" Please select best baker and type the name;  ");
-        bestBakerStr = sc.nextLine();
-        
-        System.out.println("Now pick the winner of the technical round: ");
-        roundWinnerStr = sc.nextLine();
-        
-        System.out.println("Lastly pick who you believe will be eliminated: ");
-        eliminatedBakerStr = sc.nextLine();
-        
-        Baker bestBaker = BakerRepository.getBakersMap().get(bestBakerStr);
-        
-        if(bestBaker != null){
-            player.addPrediction(bestBaker);
-            System.out.println("Prediction added Successfully.");
-        }else{
-            System.out.println("Baker not found.");
-        }
-        
-        Baker roundWinner = BakerRepository.getBakersMap().get(roundWinnerStr);
-        
-        if (roundWinner != null){
-            player.addPrediction(roundWinner);
-            System.out.println("Prediction adder successfully.");
-        }else{
-            System.out.println("Baker not found.");
-        }
-        
-        Baker eliminatedBaker = BakerRepository.getBakersMap().get(eliminatedBakerStr);
-        if (eliminatedBaker != null){
-            player.addPrediction(eliminatedBaker);
-            System.out.println("Prediction added successfully.");
-        }else{
-            System.out.println("Baker not found.");
-        }
-    }
-    
-    public void displayPredictionHistory(){
-        //Display Prediction history of a player as a table. Still missing the last column which will be the players points per week and the total points
-        System.out.printf("%-20s %-20s %-20s %-20s\n", "Week", "Best Baker" , "Round Winner" , "Eliminated Baker");
-        System.out.println("------------------------------------------------------------");
-        
-        for (int i = 0; i < predictionHistory.size(); i+=3){
-            int weekNumber = (i/3)+1;
-            Baker bestBaker = predictionHistory.get(i);
-            Baker roundWinner = predictionHistory.get(i+1);
-            Baker eliminatedBaker = predictionHistory.get(i+2);
-            
-            System.out.printf("%-20s %-20s %-20s %-20s\n", weekNumber, bestBaker.getBakerName(), roundWinner.getBakerName(), eliminatedBaker.getBakerName()); 
-        }
-    }
-        
+    }       
 }
 
