@@ -1,18 +1,16 @@
 
 package bakeofffantasyleague;
 
-import bakeofffantasyleague.Repositories.BakerRepository;
 import bakeofffantasyleague.Repositories.PlayerRepository;
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.Scanner;
 /**
  *
  * @author Mateus Manhani
  */
 public class Player {
-    private String playerName;
-    private String teamName;
+    private final String playerName;
+    private final String teamName;
     private int totalPoints;
     private ArrayList<Baker> predictionHistory;
     private ArrayList<Integer> scoreHistory;
@@ -71,5 +69,13 @@ public class Player {
     public ArrayList<Baker> getPredictionHistory(){
         return predictionHistory;
     }       
+    
+    public void setPredictionHistory(ArrayList<Baker> predctionHistory){
+        this.predictionHistory = predictionHistory;
+    }
+
+    CharSequence getTeamName() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 }
 
