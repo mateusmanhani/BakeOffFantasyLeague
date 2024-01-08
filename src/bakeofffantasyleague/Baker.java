@@ -10,9 +10,8 @@ public class Baker {
     private int bakerPoints;
 
 
-    public Baker (String bakerName, int bakerPoints){
+    public Baker (String bakerName){
         this.bakerName = bakerName;
-        this.bakerPoints = bakerPoints;
     }  
     
     public String getBakerName(){

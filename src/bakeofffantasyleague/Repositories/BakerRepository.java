@@ -27,7 +27,7 @@ public class BakerRepository {
                     int bakerPoints = Integer.parseInt(parts[1].trim());
 
                     // Create a new Baker object and add it to the map
-                    Baker baker = new Baker(bakerName, bakerPoints);
+                    Baker baker = new Baker(bakerName);
                     bakerMap.put(bakerName, baker);
                 }
             }

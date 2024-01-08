@@ -1,6 +1,8 @@
 package bakeofffantasyleague;
 
 import java.io.*;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -41,8 +43,42 @@ public class CsvHandler {
             e.printStackTrace();
         }
     }
+    
+    
+    public static Map<String, Player> readPlayersFromCsv() {
+        Map<String, Player> playersMap = new HashMap<>();
 
-    // Other methods remain unchanged...
+        try (BufferedReader reader = new BufferedReader(new FileReader(PLAYERS_CSV_FILE_PATH))) {
+            // Read header (skip it for now)
+            reader.readLine();
+
+            // Read player data
+            String line;
+            while ((line = reader.readLine()) != null) {
+                String[] values = line.split(",");
+                String playerName = values[0];
+                String teamName = values[1];
+                int totalPoints = Integer.parseInt(values[2]);
+
+                Player player = new Player(playerName, teamName);
+                player.updatePoints(totalPoints);
+
+                ArrayList<Baker> predictionHistory = new ArrayList<>();
+                for (int i = 3; i < values.length; i++) {
+                    predictionHistory.add(new Baker(values[i]));
+                }
+
+                player.setPredictionHistory(predictionHistory);
+                playersMap.put(playerName, player);
+            }
+
+            System.out.println("Players data read from " + PLAYERS_CSV_FILE_PATH);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return playersMap;
+    }
 
     private static String formatBaker(Baker baker) {
         return baker.getBakerName();

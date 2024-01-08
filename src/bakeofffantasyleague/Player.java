@@ -70,7 +70,7 @@ public class Player {
         return predictionHistory;
     }       
     
-    public void setPredictionHistory(ArrayList<Baker> predctionHistory){
+    public void setPredictionHistory(ArrayList<Baker> predictionHistory){
         this.predictionHistory = predictionHistory;
     }
 
