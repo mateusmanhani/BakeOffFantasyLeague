@@ -35,13 +35,7 @@ public class MenuSystem {
                 
                 case 2:
                     //Create Player
-                    System.out.println("Please type your ID: ");
-                    String newPlayerId = sc.nextLine();
-                    
-                    System.out.println("Please type in your team name: ");
-                    String teamName = sc.nextLine();
-                    
-                    currentPlayer = new Player(newPlayerId, teamName);   
+                    Player.createNewPlayer();
                     break;
                 case 3:
                     exit = true;
