@@ -56,9 +56,7 @@ public class MenuSystem {
                     System.out.println("Invalid Choice please try again");
             }
         }
-        
     }
-    
     private static Player findPlayerById(String playerId){
         return PlayerRepository.getPlayers().get(playerId);
     }
