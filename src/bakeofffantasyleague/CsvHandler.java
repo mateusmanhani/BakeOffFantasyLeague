@@ -47,7 +47,7 @@ public class CsvHandler {
     
     public static Map<String, Player> readPlayersFromCsv() {
         Map<String, Player> playersMap = new HashMap<>();
-
+        
         try (BufferedReader reader = new BufferedReader(new FileReader(PLAYERS_CSV_FILE_PATH))) {
             // Read header (skip it for now)
             reader.readLine();
@@ -62,7 +62,8 @@ public class CsvHandler {
 
                 Player player = new Player(playerName, teamName);
                 player.updatePoints(totalPoints);
-
+                
+                // Create new List in order to save all the predctions from the CSV file
                 ArrayList<Baker> predictionHistory = new ArrayList<>();
                 for (int i = 3; i < values.length; i++) {
                     predictionHistory.add(new Baker(values[i]));
