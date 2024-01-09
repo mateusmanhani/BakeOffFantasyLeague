@@ -31,11 +31,13 @@ public class MenuSystem {
                     System.out.println("Please enter you Player ID:");
                     String playerID = sc.nextLine();
                     currentPlayer = findPlayerById(playerID);
+                    exit = true;
                     break;
                 
                 case 2:
                     //Create Player
                     Player.createNewPlayer();
+                    exit = true;
                     break;
                 case 3:
                     exit = true;
