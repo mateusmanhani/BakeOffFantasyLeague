@@ -13,12 +13,47 @@ public class MenuSystem {
     public static void showMenu(){
         Scanner sc = new Scanner(System.in);
         boolean exit = false;
+        Player currentPlayer = null;
         
-        System.out.println("Please log in to continue.");
-        System.out.println("Enter your Fanatsy League ID: ");
+        while (!exit){
+            System.out.println("Welcome To The GBBO Fantasy League!.");
+            System.out.println("1. LogIn");
+            System.out.println("2. Create new Acount");
+            System.out.println("3. Exit.");
+            System.out.println("Enter the number corresponding your choice: ");
+            
+            int choice = sc.nextInt();
+            sc.nextLine();
+            
+            switch (choice) {
+                case 1:
+                    // Log In
+                    System.out.println("Please enter you Player ID:");
+                    String playerID = sc.nextLine();
+                    currentPlayer = findPlayerById(playerID);
+                    break;
+                
+                case 2:
+                    //Create Player
+                    System.out.println("Please type your ID: ");
+                    String newPlayerId = sc.nextLine();
+                    
+                    System.out.println("Please type in your team name: ");
+                    String teamName = sc.nextLine();
+                    
+                    currentPlayer = new Player(newPlayerId, teamName);   
+                    break;
+                case 3:
+                    exit = true;
+                    break;
+                default:
+                    System.out.println("Invalid Choice Please Try Again.");
+            }
+        }
         
-        String playerId = sc.nextLine();
-        Player currentPlayer = findPlayerById(playerId);
+       // String playerId = sc.nextLine();
+        
+       exit = false;
         
         while (!exit){
             System.out.println("Main Menu: ");
@@ -32,7 +67,7 @@ public class MenuSystem {
             int choice = sc.nextInt();
             sc.nextLine();
             
-            switch (choice){
+            switch (choice){       
                 case 1:
                     // Take players predctions
                     PlayerRepository.getWeeklyPredictions(currentPlayer);
