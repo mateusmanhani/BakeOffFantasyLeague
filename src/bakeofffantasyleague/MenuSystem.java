@@ -36,7 +36,7 @@ public class MenuSystem {
                 
                 case 2:
                     //Create Player
-                    Player.createNewPlayer();
+                    PlayerRepository.createNewPlayer();
                     exit = true;
                     break;
                 case 3:
@@ -46,9 +46,6 @@ public class MenuSystem {
                     System.out.println("Invalid Choice Please Try Again.");
             }
         }
-        
-       // String playerId = sc.nextLine();
-        
        exit = false;
         
         while (!exit){
@@ -89,7 +86,7 @@ public class MenuSystem {
         }
     }
     private static Player findPlayerById(String playerId){
-        return PlayerRepository.getPlayers().get(playerId);
+        return PlayerRepository.getPlayersMap().get(playerId);
     }
     
 }

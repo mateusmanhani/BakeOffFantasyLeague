@@ -39,6 +39,10 @@ public class BakerRepository {
     public static Map<String, Baker> getBakersMap() {
         return bakerMap;
     }
+    
+    public static void addBaker (Baker newBaker){
+        bakerMap.put(newBaker.getBakerName(), newBaker);
+    }
 
     public static void displayBakers() {
         // Sort the bakers by points in descending order

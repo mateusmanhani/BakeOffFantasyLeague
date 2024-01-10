@@ -12,6 +12,7 @@ public class Baker {
 
     public Baker (String bakerName){
         this.bakerName = bakerName;
+        
     }  
     
     public String getBakerName(){
