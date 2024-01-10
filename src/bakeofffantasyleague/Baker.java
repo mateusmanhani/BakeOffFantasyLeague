@@ -12,7 +12,7 @@ public class Baker {
 
     public Baker (String bakerName){
         this.bakerName = bakerName;
-        
+        this.bakerPoints = 0;
     }  
     
     public String getBakerName(){
